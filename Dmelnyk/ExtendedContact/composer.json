@@ -1,0 +1,21 @@
+{
+    "name": "dmelnyk/module-extendedcontact",
+    "description": "Extended Contact for Magento 2",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "email": "melnickforever@gmail.com",
+            "name": "Dmytro Melnyk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Dmelnyk\\ExtendedContact\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

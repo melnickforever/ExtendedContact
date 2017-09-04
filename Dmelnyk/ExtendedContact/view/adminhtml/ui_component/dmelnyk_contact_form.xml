@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">dmelnyk_contact_form.contact_form_data_source</item>
+			<item name="deps" xsi:type="string">dmelnyk_contact_form.contact_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="config" xsi:type="array">
+			<item name="dataScope" xsi:type="string">data</item>
+			<item name="namespace" xsi:type="string">dmelnyk_contact_form</item>
+		</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+		<item name="buttons" xsi:type="array">
+			<item name="back" xsi:type="string">Dmelnyk\ExtendedContact\Block\Adminhtml\Contact\Edit\BackButton</item>
+			<item name="delete" xsi:type="string">Dmelnyk\ExtendedContact\Block\Adminhtml\Contact\Edit\DeleteButton</item>
+			<item name="save" xsi:type="string">Dmelnyk\ExtendedContact\Block\Adminhtml\Contact\Edit\SaveButton</item>
+			<item name="save_and_continue" xsi:type="string">Dmelnyk\ExtendedContact\Block\Adminhtml\Contact\Edit\SaveAndContinueButton</item>
+		</item>
+	</argument>
+	<dataSource name="contact_form_data_source">
+		<argument name="dataProvider" xsi:type="configurableObject">
+			<argument name="class" xsi:type="string">Dmelnyk\ExtendedContact\Model\Contact\DataProvider</argument>
+			<argument name="name" xsi:type="string">contact_form_data_source</argument>
+			<argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+			<argument name="requestFieldName" xsi:type="string">entity_id</argument>
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="submit_url" path="*/*/save" xsi:type="url"/>
+				</item>
+			</argument>
+		</argument>
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+	</dataSource>
+	<fieldset name="General">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="label" xsi:type="string"/>
+			</item>
+		</argument>
+		<container name="actions_apply_to" >
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="sortOrder" xsi:type="number">10</item>
+				</item>
+			</argument>
+			<htmlContent name="html_content">
+				<argument name="block" xsi:type="object">\Dmelnyk\ExtendedContact\Block\Adminhtml\Contact\Edit\Tab\ContactInfo</argument>
+			</htmlContent>
+		</container>
+		<field name="status">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">\Dmelnyk\ExtendedContact\Model\Contact\Source\StatusOptions</item>
+				<item name="config" xsi:type="array">
+					<item name="label" xsi:type="string" translate="true">Status</item>
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="formElement" xsi:type="string">select</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+					<item name="dataScope" xsi:type="string">status</item>
+				</item>
+			</argument>
+		</field>
+		<field name="Reaction">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="label" translate="true" xsi:type="string">Reaction</item>
+					<item name="formElement" xsi:type="string">textarea</item>
+					<item name="source" xsi:type="string">Contact</item>
+					<item name="sortOrder" xsi:type="number">30</item>
+					<item name="dataScope" xsi:type="string">reaction</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">false</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+	</fieldset>
+</form>

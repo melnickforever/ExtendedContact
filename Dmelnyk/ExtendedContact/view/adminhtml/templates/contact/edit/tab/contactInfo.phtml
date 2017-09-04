@@ -1,0 +1,39 @@
+<div style="padding-left: 25%; padding-bottom: 20px">
+    <h3><?php echo __("Contact Information"); ?></h3>
+    <?php if ($this->hasName()): ?>
+        <div>
+            <span id="name_label"><b><?php echo __("Name:") ?></b></span>
+            <span id="name"><?php echo $this->getName() ?></span>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->hasEmail()): ?>
+        <div>
+            <span id="email_label"><b><?php echo __("Email:") ?></b></span>
+            <span id="email"><?php echo $this->getEmail() ?></span>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->hasPhone()): ?>
+        <div>
+            <span id="phone_label"><b><?php echo __("Phone:") ?></b></span>
+            <span id="phone"><?php echo $this->getPhone() ?></span>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->hasSubject()): ?>
+        <div>
+            <span id="subject_label"><b><?php echo __("Subject:") ?></b></span>
+            <span id="subject"><?php echo $this->getSubject() ?></span>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->hasMessage()): ?>
+        <div>
+            <div id="message_label"><b><?php echo __("Message:") ?></b></div>
+            <div id="message"><?php echo $this->getMessage() ?></div>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->hasCreatedAt()): ?>
+        <div>
+            <span id="createdat_label"><b><?php echo __("Created At:") ?></b></span>
+            <span id="createdat"><?php echo $this->getCreatedAt() ?></span>
+        </div>
+    <?php endif; ?>
+</div>

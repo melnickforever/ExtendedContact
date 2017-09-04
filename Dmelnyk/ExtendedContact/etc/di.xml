@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Dmelnyk\ExtendedContact\Api\ContactRepositoryInterface" type="Dmelnyk\ExtendedContact\Model\ContactRepository"/>
+	<preference for="Dmelnyk\ExtendedContact\Api\Data\ContactInterface" type="Dmelnyk\ExtendedContact\Model\Contact"/>
+	<preference for="Dmelnyk\ExtendedContact\Api\Data\ContactSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<preference for="\Magento\Contact\Controller\Index\Post" type="\Dmelnyk\ExtendedContact\Controller\Index\Post"/>
+	<virtualType name="Dmelnyk\ExtendedContact\Model\ResourceModel\Contact\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">extended_contact_message_entity</argument>
+			<argument name="resourceModel" xsi:type="string">Dmelnyk\ExtendedContact\Model\ResourceModel\Contact\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="dmelnyk_contact_grid_data_source" xsi:type="string">Dmelnyk\ExtendedContact\Model\ResourceModel\Contact\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
